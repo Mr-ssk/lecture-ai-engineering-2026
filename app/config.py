@@ -10,6 +10,10 @@ import os
 DEFAULT_MODEL = "gemini-3.5-flash-lite"
 MODEL = os.getenv("AIE_MODEL", DEFAULT_MODEL)
 
+# 生成時の温度。環境変数 AIE_TEMPERATURE で変更できる。
+DEFAULT_TEMPERATURE = 1.0
+TEMPERATURE = float(os.getenv("AIE_TEMPERATURE", str(DEFAULT_TEMPERATURE)))
+
 
 def api_error_message(status: int, detail: str = "") -> str:
     """HTTPステータスコードを、受講生向けの日本語の説明にする（ask.py と agent.py で共用）。"""
